@@ -273,7 +273,7 @@ h6,
 }
 
 .site-footer {
-  background-color:rgb(131, 213, 248) ;
+  background-color: rgb(131, 213, 248);
   color: black;
   font-weight: 600;
   padding-top: 4rem;
@@ -328,4 +328,265 @@ h6,
 .spinner-large {
   width: 3rem;
   height: 3rem;
+}
+.services {
+  margin-top: 100px;
+}
+.services .img-fluid {
+  max-width: 90%;
+  margin: 0 auto;
+}
+.services .title {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.numbers .description {
+  margin-top: 0px;
+}
+
+.why-us .title {
+  font-size: 3rem;
+  margin-top: 10rem;
+  margin-bottom: 2rem;
+}
+
+.why-us .description {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3.5rem;
+}
+
+.feature-card {
+  background-color: rgb(131, 213, 248);
+  border-radius: 15px;
+  align-items: center;
+  padding: 1.5rem 1.7rem;
+  max-width: 280px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+}
+
+.icon-box {
+  background-color: var(--color-box-secondary);
+  width: 70px;
+  height: 70px;
+  border-radius: 10px;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon-box img {
+  width: 40px;
+  height: 40px;
+}
+
+.feature-card h5 {
+  color: var(--color-text-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.img-fluid {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title {
+  font-weight: 600;
+  color: var(--color-text-primary);
+  font-size: 70px;
+  margin-top: 3rem;
+}
+
+.description {
+  color: var(--color-text-secondary);
+  max-width: 500px;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 3rem;
+}
+
+.btn {
+  background-color: var(--color-buttons);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.btn:hover {
+  background-color: var(--color-text-primary-hover);
+  color: white;
+}
+
+.services {
+  margin-top: 100px;
+}
+.services .img-fluid {
+  max-width: 90%;
+  margin: 0 auto;
+}
+.services .title {
+  font-size: 3rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+}
+
+.numbers .description {
+  margin-top: 0px;
+}
+
+.why-us .title {
+  font-size: 3rem;
+  margin-top: 10rem;
+  margin-bottom: 2rem;
+}
+
+.why-us .description {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 3.5rem;
+}
+
+.btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: #fff !important;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark) !important;
+  border-color: var(--color-primary-dark) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  background-color: transparent !important;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--color-primary) !important;
+  color: #fff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-cta {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.contact-cta .title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin-bottom: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-link {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.info-link:hover {
+  color: var(--color-text-primary-hover);
+}
+
+.info-link i {
+  margin-right: 8px;
+  font-size: 1.2rem;
+}
+
+.subscribe-form {
+  margin-top: 2rem;
+}
+
+.subscribe-form .input-group {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.subscribe-form .input-group-text,
+.subscribe-form .form-control {
+  background-color: var(--color-body-secondary);
+  border: none;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.subscribe-form .form-control {
+  font-weight: 600;
+  color: var(--color-text-primary);
+}
+
+.subscribe-form .input-group-text {
+  color: var(--color-text-primary);
+  font-size: 1.1rem;
+}
+
+.subscribe-form .form-control::placeholder {
+  color: var(--color-text-secondary);
+  font-weight: 500;
+  opacity: 1;
+}
+
+.subscribe-form .form-control:focus {
+  box-shadow: none;
+  background-color: var(--color-body-secondary);
+}
+
+.subscribe-form .btn {
+  background-color: rgb(36, 184, 247);
+  color: white;
+  border: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  font-weight: 600;
+  width: auto;
+}
+
+.subscribe-form .btn:hover {
+  background-color: rgb(7, 104, 145);
+  color: white;
+}
+
+:root {
+  --color-primary: #0d6efd;
+  --color-primary-dark: #0b5ed7;
+}
+.product-card .card-footer .btn {
+  white-space: nowrap;
+}
+.btn {
+  white-space: nowrap;
 }

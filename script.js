@@ -11,6 +11,9 @@ document.addEventListener("DOMContentLoaded", () => {
   if (document.getElementById("categories-wrapper")) {
     fetchCategoriesForSwiper();
   }
+  if (document.getElementById("featured-products-grid")) {
+    fetchFeaturedProducts();
+  }
   if (document.getElementById("products-grid")) {
     const categoryFilter = document.getElementById("category-filter");
     const sortFilter = document.getElementById("sort-filter");
@@ -76,6 +79,57 @@ function initCategorySwiper() {
   }
 }
 
+async function fetchFeaturedProducts() {
+  const grid = document.getElementById("featured-products-grid");
+  if (!grid) return;
+
+  try {
+    // نطلب 4 منتجات، ونبدأ من المنتج رقم 10 لنعرض منتجات مختلفة عن بداية صفحة المتجر
+    const response = await fetch("https://dummyjson.com/products?limit=4&skip=10"); 
+    const data = await response.json();
+    
+    renderFeaturedProducts(data.products, grid);
+  } catch (error) {
+    console.error("Error fetching featured products:", error);
+    grid.innerHTML = `<div class="col-12 text-center text-danger">Failed to load products.</div>`;
+  }
+}
+
+// هذه الدالة تبني بطاقات المنتجات وتضعها داخل الشبكة في الصفحة الرئيسية
+function renderFeaturedProducts(products, gridElement) {
+  if (!gridElement) return;
+  gridElement.innerHTML = ""; // إزالة مؤشر التحميل
+
+  products.forEach((product) => {
+    const col = document.createElement("div");
+    col.className = "col";
+    // حساب السعر بعد الخصم
+    const discountPrice = (product.price * (1 - product.discountPercentage / 100)).toFixed(2);
+
+    col.innerHTML = `
+      <div class="card h-100 product-card shadow-sm border-0">
+          <div class="product-image-wrapper" style="height: 200px;">
+              <img src="${product.thumbnail}" class="card-img-top" alt="${product.title}" style="object-fit: contain; height: 100%; width: 100%;">
+          </div>
+          <div class="card-body d-flex flex-column p-3">
+              <h6 class="card-title fw-bold text-truncate">${product.title}</h6>
+              <p class="text-muted small mb-2">${product.category}</p>
+              <div class="mt-auto">
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="fw-bold text-primary">$${discountPrice}</span>
+                  <small class="text-warning"><i class="bi bi-star-fill"></i> ${product.rating.toFixed(1)}</small>
+                </div>
+              </div>
+          </div>
+          <div class="card-footer bg-white border-0 p-3 pt-0">
+            <a href="products/product-details.html?id=${product.id}" class="btn btn-primary btn-sm w-100">View Details</a>
+          </div>
+      </div>
+    `;
+    gridElement.appendChild(col);
+  });
+}
+
 async function populateCategoryFilter() {
   const filterDropdown = document.getElementById("category-filter");
   if (!filterDropdown) return;
@@ -106,6 +160,9 @@ function handleCategoryChange(event) {
   productState.sortBy = null;
   document.getElementById("sort-filter").value = "default";
 
+  // تحديث الرابط في المتصفح
+  updateURL();
+  
   fetchAndRenderProducts();
 }
 
@@ -194,6 +251,18 @@ function showFilterStatus() {
   }
 }
 
+function updateURL() {
+  const url = new URL(window.location);
+  
+  if (productState.category) {
+    url.searchParams.set('category', productState.category);
+  } else {
+    url.searchParams.delete('category');
+  }
+  
+  window.history.pushState({}, '', url);
+}
+
 function clearAllFilters() {
   productState.category = null;
   productState.sortBy = null;
@@ -202,6 +271,9 @@ function clearAllFilters() {
   document.getElementById("category-filter").value = "";
   document.getElementById("sort-filter").value = "default";
 
+  // تحديث الرابط في المتصفح
+  updateURL();
+  
   fetchAndRenderProducts();
 }
 
@@ -257,8 +329,8 @@ function renderProducts(products) {
           <div class="card-footer bg-white border-0 text-center pb-3">
               <a href="products/product-details.html?id=${
                 product.id
-              }" class="btn btn-outline-primary btn-sm">Show Details</a>
-              <a href="#" class="btn btn-primary btn-sm ms-2">Add To Cart</a>
+              }" class="btn btn-primary">Show Details</a>
+              <a href="#" class="btn btn-primary ms-2">Add To Cart</a>
           </div>
       </div>
     `;

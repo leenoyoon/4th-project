@@ -119,7 +119,7 @@ function renderProductDetails(product) {
 
                 <div class="mt-4">
                     <button class="btn btn-primary btn-lg"><i class="bi bi-cart-plus-fill me-2"></i>Add to Cart</button>
-                    <button class="btn btn-outline-secondary btn-lg ms-2"><i class="bi bi-heart-fill"></i></button>
+                    <button class="btn btn-primary btn-lg ms-2"><i class="bi bi-heart-fill"></i></button>
                 </div>
             </div>
         </div>
